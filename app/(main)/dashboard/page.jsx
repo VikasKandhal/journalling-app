@@ -2,8 +2,10 @@ import { getCollections } from "@/actions/collection";
 import { getJournalEntries } from "@/actions/journal";
 import MoodAnalytics from "./_components/mood-analytics";
 import Collections from "./_components/collections";
+import ClientUserSync from "@/components/client-user-sync";
 
 const Dashboard = async () => {
+  // Server-side fetches
   const collections = await getCollections();
   const entriesData = await getJournalEntries();
 
@@ -22,6 +24,9 @@ const Dashboard = async () => {
 
   return (
     <div className="px-4 py-8 space-y-8">
+      {/* Client-side sync: ensures a DB user exists for the signed-in Clerk user */}
+      <ClientUserSync />
+
       {/* Analytics Section */}
       <section className="space-y-4">
         <MoodAnalytics />
