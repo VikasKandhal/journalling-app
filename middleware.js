@@ -1,4 +1,4 @@
-// middleware.ts  (place at project root OR src/middleware.ts if you use src/)
+// middleware.ts  (place at project root OR src/middleware.ts)
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
@@ -16,18 +16,19 @@ export default clerkMiddleware(async (auth, req) => {
     return redirectToSignIn();
   }
 
-  // allow everything else to continue (including root /)
+  // everything else continues (including sign-up / sign-in)
   return NextResponse.next();
 });
 
+// IMPORTANT: Include routes that call auth() during SSR (/, /sign-up, /sign-in, etc.)
 export const config = {
-  // include `/` (root) because SSR on "/" was calling auth()
   matcher: [
-    "/",                    // ensure root is covered so auth() can be detected
+    "/",                     // include root if root calls auth()
+    "/sign-in",
+    "/sign-up",
     "/journal/:path*",
     "/dashboard/:path*",
     "/collection/:path*",
-    "/api/auth/:path*",     // optional: if you have auth-related API routes
+    "/api/auth/:path*",      // if you have auth API routes
   ],
 };
-
