@@ -48,7 +48,7 @@ export default async function LandingPage() {
 
   return (
     <div className="relative container mx-auto px-4 pt-16 pb-16">
-      {/* Hero Section */}
+      {/* ================= HERO SECTION ================= */}
       <div className="max-w-5xl mx-auto text-center space-y-8">
         <h1 className="text-5xl md:text-7xl lg:text-8xl gradient-title mb-6">
           Your Space to Reflect. <br /> Your Story to Tell.
@@ -57,9 +57,11 @@ export default async function LandingPage() {
           Capture your thoughts, track your moods, and reflect on your journey
           in a beautiful, secure space.
         </p>
+
+        {/* Example Journal Preview */}
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-t from-orange-50 via-transparent to-transparent pointer-events-none z-10" />
-          <div className="bg-white rounded-2xl  p-4 max-full mx-auto">
+          <div className="bg-white rounded-2xl p-4 max-full mx-auto border border-orange-50 shadow-sm">
             <div className="border-b border-orange-100 pb-4 mb-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-orange-600" />
@@ -83,11 +85,13 @@ export default async function LandingPage() {
             </div>
           </div>
         </div>
+
+        {/* CTA Buttons */}
         <div className="flex justify-center gap-4">
           <Link href="/dashboard">
             <Button
               variant="journal"
-              className="px-8 py-6 rounded-full flex items-center gap-2"
+              className="px-8 py-6 rounded-full flex items-center gap-2 shadow-sm"
             >
               Start Writing <ChevronRight className="h-5 w-5" />
             </Button>
@@ -95,7 +99,7 @@ export default async function LandingPage() {
           <Link href="#features">
             <Button
               variant="outline"
-              className="px-8 py-6 rounded-full border-orange-600 text-orange-600 hover:bg-orange-100"
+              className="px-8 py-6 rounded-full border-orange-600 text-orange-600"
             >
               Learn More
             </Button>
@@ -103,13 +107,13 @@ export default async function LandingPage() {
         </div>
       </div>
 
-      {/* Feature Cards */}
+      {/* ================= FEATURE CARDS ================= */}
       <section
         id="features"
         className="mt-24 grid md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
         {features.map((feature, index) => (
-          <Card key={index} className="shadow-lg">
+          <Card key={index} className="shadow-sm hover:shadow-md transition">
             <CardContent className="p-6">
               <div className="h-12 w-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                 <feature.icon className="h-6 w-6 text-orange-600" />
@@ -123,83 +127,57 @@ export default async function LandingPage() {
         ))}
       </section>
 
-      <div className="space-y-24 mt-24">
-        {/* Feature 1 */}
-        <div className="grid md:grid-cols-2 gap-12 ">
-          <div className="space-y-6">
-            <div className="h-12 w-12 bg-orange-100 rounded-full flex items-center justify-center">
-              <FileText className="h-6 w-6 text-orange-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-orange-900">
-              Rich Text Editor
-            </h3>
-            <p className="text-lg text-orange-700">
-              Express yourself fully with our powerful editor featuring:
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-orange-400" />
-                <span>Format text with ease</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-orange-400" />
-                <span>Embed links</span>
-              </li>
-            </ul>
+      {/* ================= COMBINED FEATURE SECTION ================= */}
+      <section className="mt-24 grid md:grid-cols-2 gap-12 items-start">
+        {/* Rich Text Editor */}
+        <div className="space-y-6">
+          <div className="h-12 w-12 bg-orange-100 rounded-full flex items-center justify-center">
+            <FileText className="h-6 w-6 text-orange-600" />
           </div>
-          <div className="space-y-4 bg-white rounded-2xl shadow-xl p-6 border border-orange-100">
-            {/* Editor Preview */}
-            <div className="flex gap-2 mb-6">
-              <div className="h-8 w-8 rounded bg-orange-100"></div>
-              <div className="h-8 w-8 rounded bg-orange-100"></div>
-              <div className="h-8 w-8 rounded bg-orange-100"></div>
-            </div>
-            <div className="h-4 bg-orange-50 rounded w-3/4"></div>
-            <div className="h-4 bg-orange-50 rounded w-full"></div>
-            <div className="h-4 bg-orange-50 rounded w-2/3"></div>
-            <div className="h-4 bg-orange-50 rounded w-1/3"></div>
-          </div>
+          <h3 className="text-2xl font-bold text-orange-900">
+            Rich Text Editor
+          </h3>
+          <p className="text-lg text-orange-700">
+            Express yourself fully with our powerful editor featuring:
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-orange-400" />
+              <span>Format text with ease</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-orange-400" />
+              <span>Embed links</span>
+            </li>
+          </ul>
         </div>
 
-        {/* Feature 2 */}
-        <div className="grid md:grid-cols-2 gap-12 md:flex-row-reverse">
-          <div className="space-y-6 md:order-2">
-            <div className="h-12 w-12 bg-orange-100 rounded-full flex items-center justify-center">
-              <BarChart2 className="h-6 w-6 text-orange-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-orange-900">
-              Mood Analytics
-            </h3>
-            <p className="text-lg text-orange-700">
-              Track your emotional journey with powerful analytics:
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-orange-400" />
-                <span>Visual mood trends</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-orange-400" />
-                <span>Pattern recognition</span>
-              </li>
-            </ul>
+        {/* Mood Analytics */}
+        <div className="space-y-6">
+          <div className="h-12 w-12 bg-orange-100 rounded-full flex items-center justify-center">
+            <BarChart2 className="h-6 w-6 text-orange-600" />
           </div>
-          <div className="space-y-4 bg-white rounded-2xl shadow-xl p-6 border border-orange-100 md:order-1">
-            {/* Analytics Preview */}
-            <div className="h-40 bg-gradient-to-t from-orange-100 to-orange-50 rounded-lg"></div>
-            <div className="flex justify-between">
-              <div className="h-4 w-16 bg-orange-100 rounded"></div>
-              <div className="h-4 w-16 bg-orange-100 rounded"></div>
-              <div className="h-4 w-16 bg-orange-100 rounded"></div>
-            </div>
-          </div>
+          <h3 className="text-2xl font-bold text-orange-900">Mood Analytics</h3>
+          <p className="text-lg text-orange-700">
+            Track your emotional journey with powerful analytics:
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-orange-400" />
+              <span>Visual mood trends</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-orange-400" />
+              <span>Pattern recognition</span>
+            </li>
+          </ul>
         </div>
-      </div>
+      </section>
 
-      {/* Testimonials Carousel */}
+      {/* ================= TESTIMONIALS ================= */}
       <TestimonialCarousel />
 
-      {/* FAQ Section */}
+      {/* ================= FAQ ================= */}
       <div className="mt-24">
         <h2 className="text-3xl font-bold text-center text-orange-900 mb-12">
           Frequently Asked Questions
@@ -218,18 +196,26 @@ export default async function LandingPage() {
         </Accordion>
       </div>
 
-      {/* CTA Section */}
+      {/* ================= CTA ================= */}
       <div className="mt-24">
         <Card className="bg-gradient-to-r from-orange-100 to-amber-100">
           <CardContent className="p-12 text-center">
             <h2 className="text-3xl font-bold text-orange-900 mb-6">
-              Start Reflct-ing on Your Journey Today
+              Start Reflecting on Your Journey Today
             </h2>
             <p className="text-lg text-orange-700 mb-8 max-w-2xl mx-auto">
               Join thousands of writers who have already discovered the power of
               digital journaling.
             </p>
-            
+            <Link href="/sign-up">
+              <Button
+                size="lg"
+                variant="journal"
+                className="rounded-full px-10 py-6 text-lg shadow-sm"
+              >
+                Get Started for Free <ChevronRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </CardContent>
         </Card>
       </div>

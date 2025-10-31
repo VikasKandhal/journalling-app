@@ -150,3 +150,35 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Add to app/globals.css */
+
+@keyframes pulse-slow {
+  0% { opacity: 0.8; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-4px); }
+  100% { opacity: 0.8; transform: translateY(0); }
+}
+
+@keyframes chart-rise {
+  0% { transform: scaleY(0); transform-origin: bottom; }
+  100% { transform: scaleY(1); }
+}
+
+.icon-badge {
+  box-shadow: 0 8px 24px rgba(14, 21, 47, 0.08);
+  border: 1px solid rgba(255,255,255,0.6);
+  backdrop-filter: blur(6px);
+}
+
+/* subtle glass look for large cards */
+.glass-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.82));
+  border: 1px solid rgba(255, 166, 68, 0.08);
+  box-shadow: 0 10px 30px rgba(14,21,47,0.08);
+}
+
+/* more readable heading */
+.landing-h1 {
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}

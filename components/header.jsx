@@ -17,8 +17,8 @@ const Header = async () => {
           <Image
             src={"/logo.png"}
             alt="Reflct Logo"
-            width={200}
-            height={60}
+            width={1000}
+            height={500}
             className="h-10 w-auto object-contain"
           />
         </Link>
