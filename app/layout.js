@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <main className="min-h-screen">{children}</main>
       <footer className="bg-orange-300 py-12 bg-opacity-10">
         <div className="container mx-auto px-4 text-center text-gray-900">
-          <p>Made By Vikas & Rahul Garg</p>
+          
         </div>
       </footer>
       </body>
